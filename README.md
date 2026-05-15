@@ -52,20 +52,21 @@ First start of PresenceSync downloads its Python dependencies (`findmy`, `paho-m
 
 The extractor needs to run on a Mac that's signed in to the same Apple ID as your AirTags. **The Mac is only needed for this one-time step** — everything after that runs inside HA.
 
+➡ **Full walkthrough with all the prerequisites: [`docs/mac-setup.md`](docs/mac-setup.md).**
+
+TL;DR (once SIP + AMFI are temporarily disabled — see the walkthrough):
+
 ```bash
 git clone https://github.com/PrayerfulDrop/findmy-key-extractor.git ~/src/findmy-key-extractor
 cd ~/src/findmy-key-extractor
 git checkout x86_64-port    # Intel + Apple Silicon support
-
-# Disable SIP + set AMFI boot-arg first — see docs/mac-setup.md.
-# (You can re-enable both after extraction completes.)
 
 sudo ./extract.sh                  # captures FMIP + FMF + LocalStorage keys
 sudo ./extract_beaconstore.sh      # captures BeaconStore key
 ./bundle.sh                        # packages everything into presencesync-bundle.tar.gz
 ```
 
-Copy `presencesync-bundle.tar.gz` to whatever computer you'll use to open Home Assistant in a browser (e.g. AirDrop it to your phone, or save to a USB stick).
+Copy `presencesync-bundle.tar.gz` to whatever computer you'll use to open Home Assistant in a browser (e.g. AirDrop it to your phone, or save to a USB stick). After it's uploaded to PresenceSync, you can re-enable SIP and clear the boot-arg.
 
 ### Step 4 — Open PresenceSync's web UI in Home Assistant
 
