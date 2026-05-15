@@ -1,0 +1,26 @@
+#!/usr/bin/env sh
+# Entry point for PresenceSync HA add-on.
+# Reads Home Assistant Supervisor options and starts the FastAPI server.
+set -e
+
+OPTIONS_FILE=/data/options.json
+if [ -f "$OPTIONS_FILE" ]; then
+    export PRESENCESYNC_LOG_LEVEL=$(jq -r '.log_level // "info"' "$OPTIONS_FILE")
+    export PRESENCESYNC_POLL_INTERVAL=$(jq -r '.poll_interval_seconds // 60' "$OPTIONS_FILE")
+    export PRESENCESYNC_ANISETTE_URL=$(jq -r '.anisette_url // "http://b1c3d05c-anisette:6969"' "$OPTIONS_FILE")
+    export PRESENCESYNC_DISCOVERY_PREFIX=$(jq -r '.mqtt_discovery_prefix // "homeassistant"' "$OPTIONS_FILE")
+    export PRESENCESYNC_STATE_PREFIX=$(jq -r '.state_prefix // "presencesync"' "$OPTIONS_FILE")
+fi
+
+export PRESENCESYNC_DATA_DIR=/data
+
+echo "[PresenceSync] starting"
+echo "  log_level    = ${PRESENCESYNC_LOG_LEVEL:-info}"
+echo "  poll         = ${PRESENCESYNC_POLL_INTERVAL:-60}s"
+echo "  anisette     = ${PRESENCESYNC_ANISETTE_URL:-(unset)}"
+echo "  data dir     = ${PRESENCESYNC_DATA_DIR}"
+
+exec uvicorn presencesync.web:app \
+    --host 0.0.0.0 \
+    --port 8099 \
+    --log-level "${PRESENCESYNC_LOG_LEVEL:-info}"

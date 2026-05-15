@@ -1,0 +1,15 @@
+:root { color-scheme: light dark; font: 14px system-ui, sans-serif; }
+* { box-sizing: border-box; }
+body { margin: 0; padding: 0; }
+header { padding: 1rem 1.5rem; display: flex; align-items: baseline; gap: 1rem; border-bottom: 1px solid color-mix(in oklch, currentColor 20%, transparent); }
+header h1 { margin: 0; font-size: 1.4rem; }
+.ver { opacity: 0.6; font-size: 0.85rem; }
+main { padding: 1.5rem; max-width: 720px; }
+section { padding: 1rem 0; border-bottom: 1px solid color-mix(in oklch, currentColor 10%, transparent); }
+h2 { margin: 0 0 0.75rem; font-size: 1.1rem; }
+label { display: block; margin: 0.4rem 0; }
+input { display: block; width: 100%; padding: 0.5rem; font: inherit; border: 1px solid color-mix(in oklch, currentColor 25%, transparent); border-radius: 4px; background: transparent; color: inherit; }
+button { padding: 0.5rem 1rem; font: inherit; border: 1px solid color-mix(in oklch, currentColor 25%, transparent); border-radius: 4px; background: transparent; color: inherit; cursor: pointer; margin-right: 0.4rem; margin-top: 0.5rem; }
+button:hover { background: color-mix(in oklch, currentColor 8%, transparent); }
+button.danger { color: #c0392b; }
+pre { white-space: pre-wrap; word-break: break-word; background: color-mix(in oklch, currentColor 5%, transparent); padding: 0.5rem; border-radius: 4px; font: 12px ui-monospace, monospace; }
