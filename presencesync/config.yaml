@@ -28,7 +28,7 @@ map:
 options:
   log_level: info
   poll_interval_seconds: 60
-  anisette_url: http://b1c3d05c-anisette:6969
+  anisette_url: http://local-anisette:6969
   mqtt_discovery_prefix: homeassistant
   state_prefix: presencesync
 schema:
