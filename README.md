@@ -138,8 +138,5 @@ PresenceSync's web UI has a **Reset** button that clears the Apple session + bun
 
 ## Acknowledgements
 
-This project stands on three pieces of community work:
-
-- [`findmy-key-extractor`](https://github.com/manonstreet/findmy-key-extractor) by manonstreet — the original ARM64 extractor, now extended to Intel + BeaconStore in [our fork](https://github.com/PrayerfulDrop/findmy-key-extractor).
-- [`FindMySyncPlus`](https://github.com/manonstreet/FindMySyncPlus) by manonstreet — proved out ChaCha20-Poly1305 against `Items.data` and demonstrated the MQTT path.
-- [`FindMy.py`](https://github.com/malmeloo/FindMy.py) by malmeloo — the high-level Apple Find My protocol client this project drives.
+- [`findmy-key-extractor`](https://github.com/manonstreet/findmy-key-extractor) by manonstreet — the original ARM64 extractor, extended to Intel + BeaconStore in [our fork](https://github.com/PrayerfulDrop/findmy-key-extractor).
+- [`FindMy.py`](https://github.com/malmeloo/FindMy.py) by malmeloo — the Apple Find My protocol client this project drives.
