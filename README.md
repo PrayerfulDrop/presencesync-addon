@@ -119,6 +119,17 @@ You can use these in **Lovelace cards**, **automations**, **history**, **logbook
 - Apple ID auth state is persisted to HA's `/data` volume — surviving restarts and updates.
 - 2FA only triggers if Apple invalidates the session (rare, typically once a year).
 
+### What if the 2FA code never arrives?
+
+Apple sometimes silently suppresses push notifications when third-party tools authenticate. If your iPhone/iPad doesn't show the "Apple ID Sign-In Requested" notification within ~30 seconds of clicking Log in, use the manual fallback:
+
+1. Put your iPhone in **Airplane Mode**
+2. **Settings → [your name] → Sign-In & Security → Get Verification Code**
+3. iOS displays a 6-digit code on screen
+4. Type it into PresenceSync and click Submit, then turn Airplane Mode off
+
+The Airplane Mode step keeps iOS from auto-completing the auth flow on the device while you're typing the code in.
+
 ## Reconfigure / reset
 
 PresenceSync's web UI has a **Reset** button that clears the Apple session + bundle while keeping your MQTT and home-location settings. Useful if you change your Apple ID password (re-extract bundle + re-login) or want to wipe state.
