@@ -27,7 +27,7 @@ Sessions persist across restarts and add-on updates. 2FA only re-prompts if Appl
 
 ## Repository contents
 
-Two Home Assistant add-ons in one repository:
+Two Home Assistant apps in one repository:
 
 | Add-on | What it is | User-facing? |
 | --- | --- | --- |
@@ -36,15 +36,15 @@ Two Home Assistant add-ons in one repository:
 
 ## Quick start
 
-### 1. Add this repository to your HA Add-on Store
+### 1. Add this repository to your HA Apps Store
 
-Settings → **Add-ons** → **Add-on Store** → top-right **⋯** → **Repositories** → paste:
+Settings → **Apps** → **Apps Store** → top-right **⋯** → **Repositories** → paste:
 
 ```
 https://github.com/PrayerfulDrop/presencesync-addon
 ```
 
-### 2. Install both add-ons
+### 2. Install both apps
 
 Both appear in the store after the repo is added. Install in this order:
 
